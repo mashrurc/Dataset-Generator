@@ -12,7 +12,7 @@ import numpy as np
 from keras.preprocessing import image
 
 import os, os.path
-DIR = 'C:/Users/Mashrur/Desktop/PERSONAL/Programming/OpenCV/unknownfaces'
+DIR = '/unknownfaces'
 
 size = 4
 webcam = cv2.VideoCapture(0) #Use camera 0
@@ -38,12 +38,12 @@ while True:
     faces = classifier.detectMultiScale(mini)
 
     def run(index):
-        test_image = image.load_img( 'C:/Users/Mashrur/Desktop/PERSONAL/Programming/OpenCV/unknownfaces/face.jpg', target_size = (128, 128))
+        test_image = image.load_img( '/unknownfaces/face.jpg', target_size = (128, 128))
         test_image = image.img_to_array(test_image)
         test_image = np.expand_dims(test_image, axis=0)
         r=model.predict(test_image)
 
-        q=["shouvik","farzad","masud","flora"]
+        q=["1","2","3","4"]
         return(q[r[0].tolist().index(max(r[0]))])
 
     # Draw rectangles around each face
